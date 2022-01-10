@@ -9,10 +9,8 @@ file_to_save = os.path.join("analysis", "election_analysis.txt")
 #Initialize a total vote counter.
 total_votes = 0
 
-#Candidate Options.
+#Candidate Options and Votes
 candidate_options = []
-
-#Declare the empty dictionary.
 candidate_votes = {}
 
 # Winning Candidate Count Tracker
@@ -41,6 +39,18 @@ with open(file_to_load) as election_data:
             candidate_votes[candidate_name] = 0
         # Add a vote to that candidate's count..
         candidate_votes[candidate_name] += 1
+# Save the results to our text file.
+with open(file_to_save, "w") as txt_file:
+        # Print the final vote count to the terminal.
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n"
+        f"\nCanidate Votes:\n")
+    print(election_results, end="")
+    # Save the final vote count to the text file.
+    txt_file.write(election_results)         
 
     # Determine the percentage of votes for each candidate by looping through the counts. Iterate through the candidate list.
     for candidate in candidate_votes:
@@ -68,5 +78,7 @@ with open(file_to_load) as election_data:
         f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"-------------------------\n")
     print(winning_candidate_summary)
+ # Save the winning candidate's results to the text file.
+    txt_file.write(winning_candidate_summary)        
 # Close the file
 election_data.close()
