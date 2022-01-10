@@ -12,7 +12,7 @@ We are assisting a Colorado Board of Elections employee Tom in an election audit
 -Data Source: election_results.CSV
 -Software: Python 3.9.7, Visual Studio Code 
  
- ##Summary
+ ## Summary
  ## Challenge Overview
  
  ## Challenge Summary
